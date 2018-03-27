@@ -1,27 +1,20 @@
-# BookLendingAppAngular
+# Book Lending App (Angular)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.8.
 
-## Development server
+This repo is part of the tiny project/demo/portfolio for a **Super Simple Book Lending App**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It is responsible for creating the graphical user interface, managing the API calls, and control user access in each action (borrow, reserve, return).
 
-## Code scaffolding
+## How to install
+Assuming you already have [Angular CLI](https://github.com/angular/angular-cli) and you already installed and deployed the repos [book-lending-app-auth](https://github.com/mimurawil/book-lending-app-auth) and [book-lending-app-api](https://github.com/mimurawil/book-lending-app-api), the following steps will explain how to install this project on your machine.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone this repo
+2. Install the dependent modules
+3. Open the file `src/app/service/login.service.ts` and update the **urls** of the API call to the one you created installing the repo [book-lending-app-auth](https://github.com/mimurawil/book-lending-app-auth).
+4. Open the file `src/app/service/book-lending.service.ts` and update the **url** of the API call in the methods **getBookList()** and **postActionBook()** to the one you created installing the repo [book-lending-app-api](https://github.com/mimurawil/book-lending-app-api).
+    1. **For the method postActionBook() don't paste the entire url. This method is dynamically taking the last two path parameters, the first one is the utility (reservations/lendings/returnings), and the second one is the id of the book.**
+5. To execute in local mode run `ng serve --open`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## How to uninstall
+Just delete the entire folder.

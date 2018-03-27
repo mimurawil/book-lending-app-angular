@@ -1,0 +1,19 @@
+<div class="login-container rounded container p-4">
+    <button class="close-button btn btn-link" (click)="onCloseLogin()">
+        <span class="material-icons">clear</span>
+    </button>
+
+    <ul class="row nav nav-tabs nav-fill mt-4">
+        <li class="nav-item">
+            <a [class]="loginMode ? 'nav-link active' : 'nav-link text-secondary'" (click)="onToggleLoginMode(true)">Login</a>
+        </li>
+        <li class="nav-item">
+            <a [class]="!loginMode ? 'nav-link active' : 'nav-link text-secondary'" (click)="onToggleLoginMode(false)">Register</a>
+        </li>
+    </ul>
+
+    <div class="row bg-white border border-top-0 pt-4 pb-3 pr-3 pl-3 position-relative">
+        <app-sign-in *ngIf="loginMode" class="col"></app-sign-in>
+        <app-register *ngIf="!loginMode" class="col" (onRegisterSuccess)="onToggleLoginMode(true)"></app-register>
+    </div>
+</div>

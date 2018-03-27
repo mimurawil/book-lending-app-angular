@@ -1,0 +1,35 @@
+<div class="media book-single-container mb-3 pb-3">
+    <div class="media-body row">
+        <div class="col-12 col-md-8 offset-xl-1 col-xl-7">
+            <span class="book-title text-primary d-block">
+                <a routerLink="/books/{{ book.itemId }}">{{ book.title }}</a>
+            </span>
+            <span class="book-author d-block text-secondary">
+                <span class="label-item text-info">Author: </span>{{ book.author }}</span>
+            <span class="book-publisher d-block text-secondary">
+                <span class="label-item text-info">Publisher: </span>{{ book.publisher }}</span>
+            <span class="book-publish-date d-block text-secondary">
+                <span class="label-item text-info">Pub. Date: </span>{{ book.publishDate }}</span>
+        </div>
+
+        <div class="commands mt-2 col-12 col-md-4 row">
+            <div [class]="(canBorrow ? 'text-success ' : '') + 'col-2 col-md-6 offset-lg-2 col-lg-4 mb-md-2 text-center text-md-right d-inline-block'"
+                (click)="onBorrowClick(book.itemId)">
+                <span class="material-icons d-block d-md-inline-block">shopping_cart</span>GET
+            </div>
+            <div [class]="(canReturn() ? 'text-success ' : '') + 'col-2 col-md-6 offset-lg-1 col-lg-4 mb-md-2 text-center text-md-right d-inline-block'"
+                (click)="onReturnClick(book.itemId)">
+                <span class="material-icons d-block d-md-inline-block">assignment_returned</span>RET
+            </div>
+            <div [class]="(canReserve ? 'text-success ' : '') + 'col-2 col-md-6 offset-lg-2 col-lg-4 text-center text-md-right d-inline-block'"
+                (click)="onReserveClick(book.itemId)">
+                <span class="material-icons d-block d-md-inline-block">book</span>RSV
+            </div>
+            <div [class]="(hasAttention ? 'text-danger ' : '') + 'col-2 col-md-6 offset-lg-1 col-lg-4 text-center text-md-right d-inline-block'"
+                (click)="onDetailClick(book.itemId)">
+                <span class="material-icons d-block d-md-inline-block">error</span>ATT
+            </div>
+        </div>
+    </div>
+
+</div>

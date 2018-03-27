@@ -1,0 +1,43 @@
+<div class="book-detail-container rounded container p-4">
+    <button class="close-button btn btn-link" (click)="onCloseDetail()">
+        <span class="material-icons">clear</span>
+    </button>
+
+    <div class="row">
+        <div class="col-12 mb-1">
+            <span class="book-title text-primary d-block h5">{{ book.title }}</span>
+        </div>
+        <div class="col-12 col-md-7">
+            <span class="book-author d-block text-secondary">
+                <span class="label-item text-info">Author: </span>{{ book.author }}</span>
+            <span class="book-publisher d-block text-secondary">
+                <span class="label-item text-info">Publisher: </span>{{ book.publisher }}</span>
+            <span class="book-publish-date d-block text-secondary">
+                <span class="label-item text-info">Pub. Date: </span>{{ book.publishDate }}</span>
+        </div>
+        <div class="col-12 col-md-5" *ngIf="book.borrowedTo || book.returnDate || book.reservedBy">
+            <div class="col-12 border-bottom d-md-none mt-1 mb-1"></div>
+            <span class="book-author d-block text-secondary" *ngIf="book.borrowedTo">
+                <span class="label-item text-warning">Borrowed To: </span>{{ book.borrowedTo }}</span>
+            <span [class]="(isLate ? 'text-danger ' :  'text-secondary ') + 'book-publisher d-block'" *ngIf="book.returnDate">
+                <span class="label-item text-warning">Expected Return: </span>{{ book.returnDate }}</span>
+            <span class="book-publish-date d-block text-secondary" *ngIf="book.reservedBy">
+                <span class="label-item text-warning">Reserved By: </span>{{ book.reservedBy }}</span>
+        </div>
+        <div class="col-12 text-center">
+            <div class="col-12 border-bottom mt-3 mb-3"></div>
+            <span class="text-secondary">{{ availabilityText }}</span>
+            <div *ngIf="role === 'lendings' || role === 'returns' || role === 'reservations'">
+                <div class="col-12 border-bottom mt-3 mb-3"></div>
+                <button class="btn btn-success" *ngIf="role === 'lendings'" (click)="onActionClicked(ACTION_BORROW)" [disabled]="!canBorrow()">Borrow</button>
+                <button class="btn btn-success" *ngIf="role === 'returns'" (click)="onActionClicked(ACTION_RETURN)" [disabled]="!canReturn()">Return</button>
+                <button class="btn btn-success" *ngIf="role === 'reservations'" (click)="onActionClicked(ACTION_RESERVE)" [disabled]="!canReserve()">Reserve</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center is-loading" *ngIf="isLoading">
+        <app-loading></app-loading>
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+@keyframes slide-in-book-detail {
+      0% { margin-top: -50vh; }
+    100% { margin-top: 20vh; }
+}
+
+.book-detail-container {
+    position: relative;
+    background-color: #f2f2f2;
+    margin-top: 20vh;
+    animation: slide-in-book-detail 0.5s linear;
+}
+
+.is-loading {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 5em;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    z-index: 100;
+    top: 6px;
+    right: 5px;
+    padding: 0;
+}
+

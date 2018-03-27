@@ -1,0 +1,44 @@
+.book-single-container {
+    border-bottom: 1px dotted black;
+}
+
+.book-title {
+    font-size: 1.3em;
+}
+
+.book-author, .book-publisher, .book-publish-date {
+    font-size: 1.1em;
+}
+
+.commands {
+    font-size: 1em;
+}
+.commands > div {
+    cursor: pointer;
+}
+
+/* 
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+ 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+*/
+@media (min-width: 768px) { 
+    .commands span.material-icons {
+        position: relative;
+        top: 6px;
+        margin-right: 5px;
+    }
+}
+
+/*
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+*/

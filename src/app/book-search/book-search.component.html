@@ -1,0 +1,50 @@
+<div class="container mb-4">
+    <div class="offset-md-2 offset-lg-3 col-md-8 col-lg-6">
+        <div class="input-group">
+            <input id="SearchBooks" placeholder="Search" type="text" class="form-control input-group-prepend" aria-label="Search Books"
+                [(ngModel)]="searchText" (keyup)="onSearch()">
+            <div class="input-group-btn input-group-append">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by:
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a class="dropdown-item" href="#" (click)="onChangeSortType('title')">Title
+                            <span class="material-icons" *ngIf="isSortTitle()">done</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" (click)="onChangeSortType('author')">Author
+                            <span class="material-icons" *ngIf="isSortAuthor()">done</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" (click)="onChangeSortType('publisher')">Publisher
+                            <span class="material-icons" *ngIf="isSortPublisher()">done</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" (click)="onChangeSortType('publish_date')">Publish Date
+                            <span class="material-icons" *ngIf="isSortPublishDate()">done</span>
+                        </a>
+                    </li>
+                    <li role="separator" class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item" href="#" (click)="onChangeSortDirection('asc')">Asc
+                            <span class="material-icons" *ngIf="isSortAsc()">done</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#" (click)="onChangeSortDirection('desc')">Desc
+                            <span class="material-icons" *ngIf="isSortDesc()">done</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- div.input-group-btn.input-group-append -->
+        </div>
+        <!-- div.input-group -->
+    </div>
+    <!-- div.offset-md-2.offset-lg-3.col-md-8.col-lg-6 -->
+</div>
+<!-- div.container.mb-4 -->

@@ -1,20 +1,61 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<app-snack-message></app-snack-message>
 
+<router-outlet></router-outlet>
+
+<header class="header-top container">
+    <div class="row align-items-center">
+        <div class="col-9 col-md-6 header-title">
+            <span class="material-icons">collections_bookmark</span>
+            <h1>
+                <span class="d-inline d-sm-none">S. S.</span>
+                <span class="d-none d-sm-inline">Super Simple</span> Book Lending App
+            </h1>
+        </div>
+        <div [class]="(!user.isLoggedIn ? 'offset-md-4 ' : '') + 'col-3 col-md-2 order-1 order-md-2'">
+            <button class="btn btn-primary float-right" *ngIf="user.isLoggedIn" (click)="onLogoutClick($event)">Logout</button>
+            <button class="btn btn-primary float-right" *ngIf="!user.isLoggedIn" routerLink="/login">Login</button>
+        </div>
+        <div class="col-12 col-md-4 order-2 order-md-1 text-md-right mt-2 mt-md-0" *ngIf="user.isLoggedIn">
+            Hello {{ user.userId }}!
+        </div>
+    </div>
+</header>
+
+<main>
+    <app-book-list></app-book-list>
+</main>
+
+<footer class="container text-white p-3 mb-3">
+    <div class="row">
+        <p class="col-12 col-md-6 col-lg-5 offset-lg-1 h5">Super Simple Book Lending App</p>
+        <p class="col-12 col-md-6 col-lg-5 text-md-right">
+            <a href="https://wtmimura.com" target="_blank" class="text-light">William Takashi Mimura (wtmimura.com)</a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-2 offset-lg-1">
+            <span class="h6">Made with: </span>
+        </div>
+        <div class="col-12 col-md-5">
+            <ul>
+                <li>Angular</li>
+                <li>Bootstrap</li>
+                <li>
+                    Serverless
+                    <ul class="ml-3">
+                        <li>AWS Lambda</li>
+                        <li>AWS DynamoDB</li>
+                        <li>AWS APIGateway</li>
+                    </ul>
+                </li>
+                <li>
+                    Security (NodeJs)
+                    <ul class="ml-3">
+                        <li>JWT Token</li>
+                        <li>BCrypt</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>

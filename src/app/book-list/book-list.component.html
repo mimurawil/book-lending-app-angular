@@ -1,0 +1,11 @@
+<div class="container book-list-container">
+    <app-book-search (onSearchFinish)="getBooks()"></app-book-search>
+
+    <div class="list-items">
+        <div class="is-loading" *ngIf="isLoading">
+            <app-loading></app-loading>
+        </div>
+
+        <app-book-single *ngFor="let book of bookService.getBooks(); let i = index;" [book]="book"></app-book-single>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.snack-message-container {
+    position: fixed;
+    z-index: 99;
+    top: 10px;
+    left: 10%;
+    width: 80%;
+}
+
+@keyframes slide-in-message{
+      0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+.snack-message-container li {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    padding: 10px;
+    margin-top: 5px;
+    animation: slide-in-message 0.5s ease;
+}
+
+.snack-message-container button {
+    padding: 0;
+}

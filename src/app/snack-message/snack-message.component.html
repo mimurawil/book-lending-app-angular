@@ -1,0 +1,12 @@
+<div class="snack-message-container" *ngIf="messages.length > 0">
+    <ul>
+        <li *ngFor="let msg of messages; let i = index;">
+            <div>
+                {{ msg }}
+                <button class="float-right btn btn-link" (click)="onClose(i)">
+                    <span class="material-icons">clear</span>
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>

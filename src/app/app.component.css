@@ -1,0 +1,23 @@
+header, footer {
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+/* header title section */
+div.header-title > span {
+    color: #f2b705;
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+div.header-title > h1 {
+    display: inline;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+main {
+    min-height: 50vh;
+    background-color: #f2f2f2;
+    padding: 1em;
+}

@@ -1,0 +1,32 @@
+<form id="login-form">
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text material-icons">person_outline</span>
+        </div>
+        <input class="form-control input-group-append" type="text" tabIndex="1" placeholder="Username" name="username" [(ngModel)]="username"
+            required>
+    </div>
+    <div class="form-group input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text material-icons">vpn_key</span>
+        </div>
+        <input class="form-control input-group-append" type="password" name="password" tabIndex="2" placeholder="Password" name="password"
+            [(ngModel)]="password" required>
+    </div>
+    <div class="form-group">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <input type="submit" tabIndex="3" class="form-control btn btn-primary" value="Log In" (click)="onLoginClicked()">
+            </div>
+        </div>
+    </div>
+    <div class="small text-center text-info">
+        Don't wanna register? You can try one of the default users:
+        <br> u: simple - p: haha
+        <br> u: friend - p: hehe
+        <br> u: amigo - p: hehe
+    </div>
+</form>
+<div *ngIf="isLoading" class="login-loading-container">
+    <app-loading></app-loading>
+</div>
